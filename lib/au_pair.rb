@@ -1,7 +1,7 @@
 require "au_pair/version"
 require "au_pair/authentication_token"
 
-module AuPair
+module AuPair 
 
   def self.configure(&block)
     @config = Configuration.new
@@ -12,12 +12,12 @@ module AuPair
     @config || Configuration.new
   end
 
-  class Configuration
-    attr_accessor :tokens
-  end
-
   def self.tokens
     config.tokens.map(&:values).inject({}) { |h,pair| h[pair[0]] = pair[1]; h}
+  end
+
+  class Configuration
+    attr_accessor :tokens
   end
 
 end
