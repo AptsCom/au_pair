@@ -1,7 +1,7 @@
-require "api_versioning/version"
-require "api_versioning/authentication_token"
+require "au_pair/version"
+require "au_pair/authentication_token"
 
-module ApiVersioning
+module AuPair
 
   def self.configure(&block)
     @config = Configuration.new
