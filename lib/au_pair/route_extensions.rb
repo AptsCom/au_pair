@@ -1,0 +1,3 @@
+module AuPair::RouteExtensions
+
+end
