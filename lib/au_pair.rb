@@ -1,6 +1,7 @@
 require "au_pair/version"
 require "au_pair/authentication_token"
-
+require "au_pair/route_extensions"
+require "au_pair/authenticates"
 module AuPair 
 
   def self.configure(&block)
