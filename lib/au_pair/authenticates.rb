@@ -1,11 +1,3 @@
-# Usage
-#
-#     class MyController 
-#       incliude ApiVersioning:Authenticates
-#       before_filter :authenticate!
-#     end 
-#
-
 module AuPair::Authenticates
 
   def token_header
