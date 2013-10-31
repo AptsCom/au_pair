@@ -1,7 +1,8 @@
 require "au_pair/version"
 require "au_pair/authentication_token"
-require "au_pair/route_extensions"
 require "au_pair/authenticates"
+require 'au_pair/api_constraint'
+
 module AuPair 
 
   def self.configure(&block)
@@ -14,7 +15,7 @@ module AuPair
   end
 
   def self.tokens
-    config.tokens.map(&:values).inject({}) { |h,pair| h[pair[0]] = pair[1]; h}
+    config.tokens
   end
 
   class Configuration

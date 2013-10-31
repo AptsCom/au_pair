@@ -1,25 +1,47 @@
-# ApiVersioning
+# AuPair
 
-TODO: Write a gem description
+AuPair provides token-based authentication and versioning for API applications.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+    gem 'au_pair'
 
-    gem 'api_versioning'
+## API Authentication
 
-And then execute:
+AuPair's authentication functionality allows you to limit access to your API to those clients that provide
+registered names and associated tokens through their request, either via headers or path variables.
 
-    $ bundle
+For header-based authentication, clients must set the `x-api-vendor` and `x-api-token` headers.
 
-Or install it yourself as:
+For path-based authentication, clients pass in `api_token` and `api_vendor` parameters through the request. 
 
-    $ gem install api_versioning
+To set up tokens, create a configuration file in config/initializers/au_pair.rb to specify client apps and their associated auth tokens:
 
-## Usage
+    AuPair.configure do |config|
 
-TODO: Write usage instructions here
+      config.tokens = {
+        'my_sample_app' => '12345'
+      }
 
+    end
+
+Then in your application controller, or in individual controllers if you want to limit authentication to certain actions:
+
+    class ApplicationController < ActionController::Base
+      include AuPair::Authenticates
+      before_filter :authenticate!
+    end
+
+## API Versioning Support
+
+Specify groups of routes per API version In your routes file:
+
+    constraints(AuPair::ApiConstraint.new('v1')) do
+      resources :widgets
+    end
+
+Client apps can then specify the API version that they want to use by passing in an `x-api-version` header or an `api_version` URL parameter.
+ 
 ## Contributing
 
 1. Fork it
