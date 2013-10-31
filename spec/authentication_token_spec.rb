@@ -16,6 +16,10 @@ describe AuPair::AuthenticationToken do
       expect(AuPair::AuthenticationToken.valid?('4567', 'foo')).to be_false
     end
 
+    it 'detects an invalid vendor' do
+      expect(AuPair::AuthenticationToken.valid?('4567', 'food')).to be_false
+    end
+
   end
 
 end
