@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = AuPair::VERSION
   spec.authors       = ["Corey Ehmke"]
   spec.email         = ["cehmke@apartments.com"]
-  spec.description   = %q{Provides API versioning and token authentication services to Apts.com client apps}
+  spec.description   = %q{AuPair provides token-based authentication and versioning for Rails API applications.}
   spec.summary       = %q{API versioning and token authentication}
   spec.homepage      = ""
   spec.license       = "Private"
