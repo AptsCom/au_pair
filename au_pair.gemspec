@@ -10,8 +10,8 @@ Gem::Specification.new do |spec|
   spec.email         = ["cehmke@apartments.com"]
   spec.description   = %q{AuPair provides token-based authentication and versioning for Rails API applications.}
   spec.summary       = %q{API versioning and token authentication}
-  spec.homepage      = ""
-  spec.license       = "Private"
+  spec.homepage      = "https://github.com/aptsCom/au_pair"
+  spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
