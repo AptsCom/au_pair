@@ -14,11 +14,11 @@ class AuPair::ApiConstraint
   private
 
   def path_matches?(request)
-    ! (request.path =~ /\/#{@path_part}\//).nil?
+    request.path =~ /\/#{@path_part}\//
   end
 
   def header_matches?(request)
-    ! (request.headers['x-api-version'] =~ /#{@numeric_version}/).nil?
+    request.headers['x-api-version'] =~ /[^0-9]*#{@numeric_version}$/
   end
 
   def param_matches?(request)
