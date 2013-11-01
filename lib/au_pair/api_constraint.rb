@@ -1,6 +1,6 @@
 class AuPair::ApiConstraint
 
-  attr_accessor :numeric_version
+  attr_accessor :numeric_version, :path_part
 
   def initialize(path_part)
     @path_part = path_part.downcase
@@ -11,14 +11,12 @@ class AuPair::ApiConstraint
     path_matches?(request) || header_matches?(request) || param_matches?(request)
   end
 
-  private
-
   def path_matches?(request)
-    request.path =~ /\/#{@path_part}\//
+    request.path =~ /\/#{@path_part}\//i
   end
 
   def header_matches?(request)
-    request.headers['x-api-version'] =~ /[^0-9]*#{@numeric_version}$/
+    request.headers['x-api-version'] =~ /^[^\d]*#{numeric_version}$/
   end
 
   def param_matches?(request)
