@@ -1,8 +1,10 @@
 # AuPair
 
-AuPair provides token-based authentication and versioning for API applications.
+AuPair provides token-based authentication and versioning for Rails API applications.
 
 ## Installation
+
+In your Gemfile:
 
     gem 'au_pair'
 
