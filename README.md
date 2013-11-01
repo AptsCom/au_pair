@@ -27,6 +27,9 @@ To set up tokens, create a configuration file in config/initializers/au_pair.rb 
 
     end
 
+(Note that for security reasons, you probably want to read in the tokens from an environment variable as opposed to storing
+them in your source code.)
+
 Then in your application controller, or in individual controllers if you want to limit authentication to certain actions:
 
     class ApplicationController < ActionController::Base
