@@ -16,7 +16,7 @@ class AuPair::ApiConstraint
   end
 
   def header_matches?(request)
-    request.headers['x-api-version'] =~ /^[^\d]*#{numeric_version}$/
+    request.headers['api-version'] =~ /^[^\d]*#{numeric_version}$/
   end
 
   def param_matches?(request)

@@ -13,9 +13,9 @@ In your Gemfile:
 AuPair's authentication functionality allows you to limit access to your API to those clients that provide
 registered names and associated tokens through their request, either via headers or path variables.
 
-For header-based authentication, clients must set the `x-api-vendor` and `x-api-token` headers.
+For header-based authentication, clients must set the `api-vendor` and `api-token` headers.
 
-For path-based authentication, clients pass in `api_token` and `api_vendor` parameters through the request. 
+For path-based authentication, clients pass in `api_token` and `api_vendor` parameters through the request.
 
 To set up tokens, create a configuration file in config/initializers/au_pair.rb to specify client apps and their associated auth tokens:
 
@@ -45,8 +45,8 @@ Specify groups of routes per API version In your routes file:
       resources :widgets
     end
 
-Client apps can then specify the API version that they want to use by passing in an `x-api-version` header or an `api_version` URL parameter.
- 
+Client apps can then specify the API version that they want to use by passing in an `api-version` header or an `api_version` URL parameter.
+
 ## Contributing
 
 1. Fork it
