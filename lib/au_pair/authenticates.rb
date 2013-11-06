@@ -1,11 +1,11 @@
 module AuPair::Authenticates
 
   def token
-    request.headers['x-api-token'] || params[:api_token]
+    request.headers['api-token'] || params[:api_token]
   end
 
   def vendor_name
-    request.headers['x-api-vendor'] || params[:api_vendor]
+    request.headers['api-vendor'] || params[:api_vendor]
   end
 
   def authenticate!
