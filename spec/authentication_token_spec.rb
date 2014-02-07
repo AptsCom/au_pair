@@ -8,6 +8,10 @@ describe AuPair::AuthenticationToken do
       AuPair.configure{ |config| config.tokens = {'foo' => '1234', 'bar' => '5678'} }
     end
 
+    it 'invalidates if vendor is nil' do
+      expect(AuPair::AuthenticationToken.valid?(nil, nil)).to be_false
+    end
+
     it 'identifies a valid token' do
       expect(AuPair::AuthenticationToken.valid?('1234', 'foo')).to be_true
     end
