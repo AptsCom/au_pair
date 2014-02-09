@@ -6,7 +6,7 @@ require 'au_pair/version'
 Gem::Specification.new do |spec|
   spec.name          = "au_pair"
   spec.version       = AuPair::VERSION
-  spec.authors       = ["Corey Ehmke"]
+  spec.authors       = ["Corey Ehmke", "Jay Wengrow"]
   spec.email         = ["cehmke@apartments.com"]
   spec.description   = %q{AuPair provides token-based authentication and versioning for Rails API applications.}
   spec.summary       = %q{API versioning and token authentication}
