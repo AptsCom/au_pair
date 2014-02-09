@@ -24,6 +24,10 @@ describe AuPair::AuthenticationToken do
       expect(AuPair::AuthenticationToken.valid?('4567', 'food')).to be_false
     end
 
+    it 'detects an invalid vendor even when token is nil' do
+      expect(AuPair::AuthenticationToken.valid?(nil, 'food')).to be_false
+    end
+
   end
 
 end
