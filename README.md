@@ -41,6 +41,8 @@ Even after including the above code, you may optionally disable authentication. 
 
     AuPair.configure do |config|
 
+      # config.tokens = ...
+
       config.authentication_disabled = true #or read from an environment variable
 
     end
