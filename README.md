@@ -15,7 +15,7 @@ registered names and associated tokens through their request, either via headers
 
 For header-based authentication, clients must set the `x-api-vendor` and `x-api-token` headers.
 
-For path-based authentication, clients pass in `api_token` and `api_vendor` parameters through the request. 
+For path-based authentication, clients pass in `api_token` and `api_vendor` parameters through the request.
 
 To set up tokens, create a configuration file in config/initializers/au_pair.rb to specify client apps and their associated auth tokens:
 
@@ -37,6 +37,14 @@ Then in your application controller, or in individual controllers if you want to
       before_filter :authenticate!
     end
 
+Even after including the above code, you may optionally disable authentication. This may be useful if you didn't want authentication to occur in certain environments. To do so, simply add the following to your config:
+
+    AuPair.configure do |config|
+
+      config.authentication_disabled = true
+
+    end
+
 ## API Versioning Support
 
 Specify groups of routes per API version In your routes file:
@@ -46,7 +54,7 @@ Specify groups of routes per API version In your routes file:
     end
 
 Client apps can then specify the API version that they want to use by passing in an `x-api-version` header or an `api_version` URL parameter.
- 
+
 ## Contributing
 
 1. Fork it
