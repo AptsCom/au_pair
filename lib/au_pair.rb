@@ -3,7 +3,7 @@ require "au_pair/authentication_token"
 require "au_pair/authenticates"
 require 'au_pair/api_constraint'
 
-module AuPair 
+module AuPair
 
   def self.configure(&block)
     @config = Configuration.new
@@ -18,8 +18,12 @@ module AuPair
     config.tokens
   end
 
+  def self.authentication_disabled?
+    config.authentication_disabled
+  end
+
   class Configuration
-    attr_accessor :tokens
+    attr_accessor :tokens, :authentication_disabled
   end
 
 end
