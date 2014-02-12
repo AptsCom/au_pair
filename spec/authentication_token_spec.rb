@@ -30,4 +30,16 @@ describe AuPair::AuthenticationToken do
 
   end
 
+  context 'when authentication is disabled' do
+
+    before do
+      AuPair.configure{ |config| config.authentication_disabled = true}
+    end
+
+    it 'should authenticate request even when no token is provided' do
+      expect(AuPair::AuthenticationToken.valid?(nil, nil)).to be_true
+    end
+
+  end
+
 end
